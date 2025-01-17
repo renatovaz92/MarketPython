@@ -1,0 +1,52 @@
+<style>
+    .modal-content{
+        background-color: rgb(0, 64, 255);
+    }
+</style>
+  <!-- Modal Info-->
+  <div class="modal fade" id="exampleModal-{{item.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{item.nome}}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <strong>Descrição: </strong>{{item.descricao}}<br>
+          <strong>Código de barras: </strong>{{item.cod_barra}}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Entendi</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal Compra-->
+  <div class="modal fade" id="exampleModalCompra-{{item.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{item.nome}}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center">
+          <form method="POST">
+            {{compra_form.hidden_tag()}}
+            <h4>
+              Deseja comprar o produto {{item.nome}} por R$ {{item.preco}}?
+            </h4>
+            <br>
+            <h6>
+              Clique no botão 'Confirmar' para prosseguir.
+            </h6>
+            <br>
+            <input id="compra_produto" name="compra_produto" type="hidden" value="{{item.nome}}">
+            {{compra_form.submit(class="btn btn-success btn-block")}}
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>

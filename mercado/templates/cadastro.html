@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+    Cadastro de Usuário
+
+{% endblock %}
+
+{% block conteudo %}
+<body class="text-center">
+    <div class="container">
+        <img class="mb-4" src="https://cdn-icons-png.flaticon.com/512/5087/5087579.png" style="width: 200px;">
+        <h1 class="h3 mb-3 font-weight-normal">
+            Realize o seu cadastro no MarketPython
+        </h1>
+        <form method="POST" class="form-group" style="color: whitesmoke;">
+
+            {{ form.hidden_tag() }}
+            
+            {{form.usuario.label()}}
+            {{form.usuario(class="form-control", placeholder="Informe o Username")}}
+
+            {{form.email.label()}}
+            {{form.email(class="form-control", placeholder="Informe o E-mail")}}
+
+            {{form.senha1.label()}}
+            {{form.senha1(class="form-control", placeholder="Digite sua senha")}} 
+
+            {{form.senha2.label()}}
+            {{form.senha2(class="form-control", placeholder="Confirme sua senha")}}
+            <br>
+            <div class="checkbox mb-3">
+                <h5>Você já é cadastrado?</h5>
+                <a class="btn btn-sm btn-secondary" href="{{url_for('page_login')}}">Faça o Login</a>
+            </div>
+            <br>
+
+            <div class="d-grid">
+                {{form.submit(class="btn btn-lg btn-success")}}
+
+            </div>
+
+
+        </form>
+    </div>
+</body>
+
+{% endblock %}

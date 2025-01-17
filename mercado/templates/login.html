@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+    Login de Usuário
+
+{% endblock %}
+
+{% block conteudo %}
+
+<body class="text-center">
+    <div class="container">
+        <img class="mb-4" src="https://cdn-icons-png.flaticon.com/512/5087/5087579.png" style="width: 200px;">
+        <h1 class="h3 mb-3 font-weight-normal">
+            Faça o seu Login
+            <br>
+            <br>
+            <form method="POST" class="form-signin" style="color: whitesmoke;">
+                {{ form.hidden_tag() }}
+
+                <div class="form-group">
+                    <div class="mb-3">
+                        {{form.usuario.label()}}
+                        {{form.usuario(class="form-control-sm", placeholder="Informe o Usuário")}}
+                    </div>
+                    <div class="mb-3">
+                        {{form.senha.label()}}
+                        {{form.senha(class="form-control-sm", placeholder="Digite a sua senha")}}
+                    </div>
+                    <br>
+                    <div class="checkbox mb-3">
+                        <h5>Você ainda não é cadastrado?</h5>
+                        <a class="btn btn-sm btn-secondary" href="{{url_for('page_cadastro')}}">Cadastre-se</a>
+                    </div><br>
+                    <div class="mb-3">
+                        {{form.submit(class="btn btn-success btn-lg w-25")}}
+                    </div>
+                </div>            
+            </form>            
+        </h1>
+    </div>
+</body>
+
+{% endblock %}
